@@ -1,0 +1,127 @@
+{
+  "appId": "com.blinkent.fileshare",
+  "productName": "BlinKNET",
+  "copyright": "Copyright © 2025 BlinKNET",
+  "directories": {
+    "output": "release",
+    "buildResources": "build"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+    "node_modules/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "assets/",
+      "to": "assets/",
+      "filter": ["**/*"]
+    }
+  ],
+  "compression": "maximum",
+  "icon": "resources/blinknet.ico",
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "installerIcon": "resources/blinknet.ico",
+    "uninstallerIcon": "resources/blinknet.ico",
+    "installerHeaderIcon": "resources/blinknet.ico",
+    "deleteAppDataOnUninstall": false,
+    "displayLanguageSelector": true
+  
+  },
+  "mac": {
+    "target": [
+      {
+        "target": "dmg",
+        "arch": [
+          "x64",
+          "arm64"
+        ]
+      }
+    ],
+    "category": "public.app-category.productivity",
+    "icon": "build/icon.icns",
+    "bundleVersion": "1.0.0",
+    "bundleShortVersion": "1.0.0",
+    "hardenedRuntime": true,
+    "gatekeeperAssess": false,
+    "entitlements": "build/entitlements.mac.plist",
+    "entitlementsInherit": "build/entitlements.mac.plist",
+    "darkModeSupport": true,
+    "type": "distribution"
+  },
+  "dmg": {
+    "title": "Ultra Light App Installer",
+    "icon": "build/volume.icns",
+    "background": "build/dmg-background.png",
+    "iconSize": 80,
+    "window": {
+      "width": 540,
+      "height": 400
+    },
+    "contents": [
+      {
+        "x": 130,
+        "y": 220,
+        "type": "file"
+      },
+      {
+        "x": 410,
+        "y": 220,
+        "type": "link",
+        "path": "/Applications"
+      }
+    ]
+  },
+  "win": {
+    "icon": "resources/blinknet.ico",
+    "publisherName": "File Share",
+    "verifyUpdateCodeSignature": false,
+    "artifactName": "blink-net-${version}-${os}-${arch}.${ext}",
+    "executableName": "BlinKNET"
+  },
+  "linux": {
+    "target": [
+      {
+        "target": "AppImage",
+        "arch": [
+          "x64"
+        ]
+      },
+      {
+        "target": "deb",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "icon": "resources/blinknet.ico",
+    "category": "Office",
+    "desktop": {
+      "Name": "Ultra Light App",
+      "Comment": "Ultra lightweight productivity app",
+      "Keywords": "productivity;utility;electron;",
+      "StartupNotify": "true"
+    },
+    "executableName": "ultra-light-app",
+    "artifactName": "ultra-light-app-${version}-${os}-${arch}.${ext}"
+  },
+  "appImage": {
+    "artifactName": "ultra-light-app-${version}-${os}-${arch}.${ext}"
+  },
+  "deb": {
+    "depends": [
+      "gconf2",
+      "gconf-service",
+      "libnotify4",
+      "libappindicator1",
+      "libxtst6",
+      "libnss3"
+    ],
+    "artifactName": "ultra-light-app-${version}-${os}-${arch}.${ext}"
+  }
+}

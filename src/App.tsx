@@ -4,7 +4,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="h-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-lg p-8 max-w-md w-full">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-800 mb-6">

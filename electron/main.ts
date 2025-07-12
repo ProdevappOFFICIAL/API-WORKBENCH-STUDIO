@@ -12,20 +12,24 @@ const createWindow = () => {
     return;
   }
 
-  mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    minWidth: 800,
-    minHeight: 600,
-    webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
-      preload: join(__dirname, 'preload.js'),
-    },
-    show: false,
-    autoHideMenuBar: true,
-    icon: undefined, // Remove icon to save space
-  });
+mainWindow = new BrowserWindow({
+  width: 800,
+  height: 600,
+  minWidth: 800,
+  minHeight: 600,
+  transparent: true,
+  frame: false, // 🔥 This hides the window frame (title bar)
+
+  webPreferences: {
+    nodeIntegration: false,
+    contextIsolation: true,
+    preload: join(__dirname, 'preload.js'),
+  },
+  show: false,
+  autoHideMenuBar: true,
+  icon: undefined, // optional
+});
+
 
   // Load the app
   if (isDev) {
@@ -64,9 +68,7 @@ app.on('activate', () => {
 
 // Security: Prevent new window creation
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', (navigationEvent) => {
-    navigationEvent.preventDefault();
-  });
+
 
   // Also handle the newer 'window-open' event for Electron 12+
   contents.setWindowOpenHandler(() => {

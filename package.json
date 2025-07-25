@@ -17,6 +17,8 @@
     "preview": "vite preview",
     "electron:dev": "node electron-dev.js",
     "electron:build": "vite build",
+    "electron:clean": "node scripts/clean-up.js",
+     "electron:size": "node scripts/size-check.js",
     "dist": "npm run electron:build && electron-builder",
     "build:win": "vite build && electron-builder --win",
     "dist:dir": "npm run electron:build && electron-builder --dir",

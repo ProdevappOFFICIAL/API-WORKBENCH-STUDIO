@@ -11,6 +11,7 @@ import {
   BiEdit,
   BiCheck,
   BiX,
+  BiImport,
 } from "react-icons/bi";
 
 interface KeyValue {
@@ -429,10 +430,10 @@ const RequestComposer: React.FC = () => {
         <h3 className="font-semibold text-gray-700">{title}</h3>
         <button
           onClick={() => addKeyValue(data, setter)}
-          className="flex items-center gap-1 px-2 py-1 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+          className="flex items-center gap-1 px-2 py-1 text-blue-500  rounded-full hover:bg-blue-600"
         >
           <BiPlus size={14} />
-          Add
+        
         </button>
       </div>
       <div className="space-y-1">
@@ -514,7 +515,7 @@ const RequestComposer: React.FC = () => {
         </div>
         <button
           onClick={() => setShowEnvModal(true)}
-          className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+          className="flex items-center gap-1 px-3 py-1 text-blue-500 bg-blue-300/10 border border-blue-500 rounded-full hover:bg-blue-600"
         >
           <BiCog size={14} />
           Manage Environments
@@ -657,10 +658,10 @@ const RequestComposer: React.FC = () => {
               />
               <button
                 onClick={saveRequest}
-                className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+                className="flex items-center gap-1 px-3 py-1 text-blue-500  rounded-full hover:bg-blue-600"
               >
                 <BiSave size={14} />
-                Save
+           
               </button>
             </div>
           </div>
@@ -681,9 +682,9 @@ const RequestComposer: React.FC = () => {
                     <span className="flex-1 truncate">{req.name}</span>
                     <button
                       onClick={() => loadRequest(req)}
-                      className="px-2 py-1 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+                      className="px-2 py-1 text-blue-500 rounded-full hover:bg-blue-600"
                     >
-                      Load
+                      <BiImport/>
                     </button>
                     <button
                       onClick={() => deleteRequest(req.id)}
@@ -793,7 +794,7 @@ const RequestComposer: React.FC = () => {
                   <h4 className="font-semibold text-gray-700 mb-2">
                     Response Body
                   </h4>
-                  <div className="bg-gray-50 rounded p-3 font-mono max-h-96 overflow-y-auto">
+                  <div className="bg-gray-50 rounded p-3 font-mono max-h-32 overflow-y-auto border border-gray-400/20">
                     <pre className="whitespace-pre-wrap break-words max-h-[20vh] overflow-y-auto">
                       {response.body || "No response body"}
                     </pre>
@@ -839,7 +840,7 @@ const RequestComposer: React.FC = () => {
                           <h4 className="font-medium">Variables</h4>
                           <button
                             onClick={() => addEnvironmentVariable(env.id)}
-                            className="flex items-center gap-1 px-2 py-1 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+                            className="flex items-center gap-1 px-2 py-1 text-blue-500  rounded-full hover:bg-blue-600"
                           >
                             <BiPlus size={14} />
                             Add Variable
